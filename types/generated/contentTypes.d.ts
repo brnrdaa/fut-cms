@@ -836,7 +836,6 @@ export interface ApiClassClass extends Schema.CollectionType {
   };
   attributes: {
     Title: Attribute.String;
-    Description: Attribute.Blocks;
     Thumbnail: Attribute.Media<'images'>;
     Videolink: Attribute.String;
     categories: Attribute.Relation<
@@ -845,6 +844,7 @@ export interface ApiClassClass extends Schema.CollectionType {
       'api::category.category'
     >;
     Slug: Attribute.String & Attribute.Required;
+    Description: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

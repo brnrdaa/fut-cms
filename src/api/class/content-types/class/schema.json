@@ -15,9 +15,6 @@
     "Title": {
       "type": "string"
     },
-    "Description": {
-      "type": "blocks"
-    },
     "Thumbnail": {
       "type": "media",
       "multiple": false,
@@ -38,6 +35,9 @@
     "Slug": {
       "type": "string",
       "required": true
+    },
+    "Description": {
+      "type": "richtext"
     }
   }
 }
