@@ -845,6 +845,7 @@ export interface ApiClassClass extends Schema.CollectionType {
     >;
     Slug: Attribute.String & Attribute.Required;
     Description: Attribute.RichText;
+    ExerciseId: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -856,6 +857,42 @@ export interface ApiClassClass extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::class.class',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTeacherTeacher extends Schema.CollectionType {
+  collectionName: 'teachers';
+  info: {
+    singularName: 'teacher';
+    pluralName: 'teachers';
+    displayName: 'Teacher';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    Photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    classes: Attribute.Relation<
+      'api::teacher.teacher',
+      'oneToMany',
+      'api::class.class'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::teacher.teacher',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::teacher.teacher',
       'oneToOne',
       'admin::user'
     > &
@@ -883,6 +920,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::category.category': ApiCategoryCategory;
       'api::class.class': ApiClassClass;
+      'api::teacher.teacher': ApiTeacherTeacher;
     }
   }
 }

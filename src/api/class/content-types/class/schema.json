@@ -38,6 +38,9 @@
     },
     "Description": {
       "type": "richtext"
+    },
+    "ExerciseId": {
+      "type": "string"
     }
   }
 }
