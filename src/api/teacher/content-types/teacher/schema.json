@@ -13,17 +13,15 @@
   "pluginOptions": {},
   "attributes": {
     "Name": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Photo": {
       "type": "media",
-      "multiple": true,
-      "required": false,
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
+        "images"
       ]
     },
     "classes": {

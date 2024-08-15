@@ -835,9 +835,9 @@ export interface ApiClassClass extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
-    Thumbnail: Attribute.Media<'images'>;
-    Videolink: Attribute.String;
+    Title: Attribute.String & Attribute.Required;
+    Thumbnail: Attribute.Media<'images'> & Attribute.Required;
+    Videolink: Attribute.String & Attribute.Required;
     categories: Attribute.Relation<
       'api::class.class',
       'oneToMany',
@@ -845,7 +845,7 @@ export interface ApiClassClass extends Schema.CollectionType {
     >;
     Slug: Attribute.String & Attribute.Required;
     Description: Attribute.RichText;
-    ExerciseId: Attribute.String;
+    ExerciseId: Attribute.String & Attribute.Required;
     teacher: Attribute.Relation<
       'api::class.class',
       'manyToOne',
@@ -881,8 +881,8 @@ export interface ApiTeacherTeacher extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String;
-    Photo: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    Name: Attribute.String & Attribute.Required;
+    Photo: Attribute.Media<'images'> & Attribute.Required;
     classes: Attribute.Relation<
       'api::teacher.teacher',
       'oneToMany',

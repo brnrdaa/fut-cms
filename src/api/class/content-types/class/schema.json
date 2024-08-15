@@ -13,18 +13,20 @@
   "pluginOptions": {},
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "Thumbnail": {
       "type": "media",
       "multiple": false,
-      "required": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ]
     },
     "Videolink": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "categories": {
       "type": "relation",
@@ -40,7 +42,8 @@
       "type": "richtext"
     },
     "ExerciseId": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "teacher": {
       "type": "relation",
