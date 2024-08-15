@@ -41,6 +41,12 @@
     },
     "ExerciseId": {
       "type": "string"
+    },
+    "teacher": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::teacher.teacher",
+      "inversedBy": "classes"
     }
   }
 }

@@ -846,6 +846,11 @@ export interface ApiClassClass extends Schema.CollectionType {
     Slug: Attribute.String & Attribute.Required;
     Description: Attribute.RichText;
     ExerciseId: Attribute.String;
+    teacher: Attribute.Relation<
+      'api::class.class',
+      'manyToOne',
+      'api::teacher.teacher'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -870,6 +875,7 @@ export interface ApiTeacherTeacher extends Schema.CollectionType {
     singularName: 'teacher';
     pluralName: 'teachers';
     displayName: 'Teacher';
+    description: '';
   };
   options: {
     draftAndPublish: true;
